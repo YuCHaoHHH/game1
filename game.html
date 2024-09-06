@@ -48,11 +48,13 @@
             // 設置已經訪問的標記
             localStorage.setItem(pageKey + "_visited", "true");
 
-            // 打開新的連結並在新視窗或標籤頁跳轉
+            // 打開新的連結，並在新視窗或標籤頁跳轉
             window.open("https://u.lin.ee/VEkWvFH", "_blank");
 
-            // 重新整理當前頁面
-            location.reload();
+            // 設置延遲刷新頁面，確保跳轉不受影響
+            setTimeout(function() {
+                location.reload();
+            }, 1000);  // 1秒後刷新頁面
         }
     </script>
 </head>
@@ -63,4 +65,3 @@
     </div>
 </body>
 </html>
-
