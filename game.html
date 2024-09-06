@@ -34,8 +34,8 @@
         // 用來偵測是否已經訪問過此頁面
         window.onload = function() {
             var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
-            if (localStorage.getItem(pageKey + "_visited")) {
-                // 如果已經造訪過，顯示 2.jpg
+            if (localStorage.getItem(pageKey + "_visited") === "2") {
+                // 如果已經點擊過兩次或以上，顯示 2.jpg
                 document.body.innerHTML = '<div class="gif-container"><img src="2.jpg" alt="You have already claimed your prize"></div>';
             }
         }
@@ -43,12 +43,16 @@
         // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
         function redirectAndClose() {
             var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
+            var visitCount = localStorage.getItem(pageKey + "_visited");
 
-            if (!localStorage.getItem(pageKey + "_visited")) { // 確認是否第一次點擊
-                localStorage.setItem(pageKey + "_visited", "true"); // 設置訪問標記
-
-                // 跳轉到目標頁面
+            if (!visitCount) {
+                // 第一次點擊，跳轉到目標頁面
+                localStorage.setItem(pageKey + "_visited", "1"); // 設置第一次點擊標記
                 window.location.href = "https://u.lin.ee/VEkWvFH";
+            } else if (visitCount === "1") {
+                // 第二次點擊，顯示 2.jpg
+                localStorage.setItem(pageKey + "_visited", "2"); // 設置第二次點擊標記
+                document.body.innerHTML = '<div class="gif-container"><img src="2.jpg" alt="You have already claimed your prize"></div>';
             }
         }
     </script>
