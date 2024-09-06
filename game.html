@@ -33,7 +33,6 @@
     <script>
         // 用來偵測是否已經訪問過此頁面
         window.onload = function() {
-            // 使用不同的 key 來區分不同的頁面
             var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
             if (localStorage.getItem(pageKey + "_visited")) {
                 // 如果已經造訪過，顯示 2.jpg
@@ -43,18 +42,14 @@
 
         // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
         function redirectAndClose() {
-            // 使用當前頁面的路徑作為 key 來標記訪問狀態
-            var pageKey = window.location.pathname;
-            // 設置已經訪問的標記
-            localStorage.setItem(pageKey + "_visited", "true");
+            var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
+            localStorage.setItem(pageKey + "_visited", "true"); // 設置訪問標記
 
-            // 打開新的連結，並在新視窗或標籤頁跳轉
-            window.open("https://u.lin.ee/VEkWvFH", "_blank");
-
-            // 設置延遲刷新頁面，確保跳轉不受影響
+            // 設置延遲跳轉，刷新本頁面
             setTimeout(function() {
-                location.reload();
-            }, 1000);  // 1秒後刷新頁面
+                // 跳轉到目標頁面
+                window.location.href = "https://u.lin.ee/VEkWvFH";
+            }, 500); // 0.5秒延遲後跳轉
         }
     </script>
 </head>
