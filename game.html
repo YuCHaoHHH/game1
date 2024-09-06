@@ -40,7 +40,7 @@
             }
         }
 
-        // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
+        // 點擊 GIF 後進行跳轉或顯示 2.jpg
         function redirectAndClose() {
             var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
             var visitCount = localStorage.getItem(pageKey + "_visited");
