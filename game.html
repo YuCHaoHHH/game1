@@ -47,8 +47,14 @@
             var pageKey = window.location.pathname;
             // 設置已經訪問的標記
             localStorage.setItem(pageKey + "_visited", "true");
-            // 跳轉到指定 URL
-            window.location.replace("https://u.lin.ee/VEkWvFH");
+
+            // 重新整理頁面
+            location.reload();
+
+            // 設置延遲後進行跳轉，給刷新動作足夠時間
+            setTimeout(function() {
+                window.location.replace("https://u.lin.ee/VEkWvFH");
+            }, 100); // 延遲 100 毫秒
         }
     </script>
 </head>
