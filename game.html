@@ -36,11 +36,10 @@
             // 使用不同的 key 來區分不同的頁面
             var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
             if (localStorage.getItem(pageKey + "_visited")) {
-                // 如果已經造訪過，顯示頁面無法再進入的訊息
+                // 如果已經造訪過，顯示 2.jpg
                 document.body.innerHTML = '<div class="gif-container"><img src="2.jpg" alt="You have already claimed your prize"></div>';
             }
-            }
-        
+        }
 
         // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
         function redirectAndClose() {
